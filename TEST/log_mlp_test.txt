@@ -1,0 +1,386 @@
+pybullet build time: Jan 29 2025 23:16:28
+Found 9 conditions to test per seed.
+
+--- Processing seed_0 ---
+(1/18) Testing Heading: 91, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.38, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.55), 'gv_c': np.float64(-9.89), 'ge_type': 'j2', 'ge_e': np.float64(37.05), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.18)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 152.42%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.38, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.55), 'gv_c': np.float64(-9.89), 'ge_type': 'j2', 'ge_e': np.float64(37.05), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.18)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_91_wind_12.csv (256 steps)
+(2/18) Testing Heading: 91, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.58, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.96), 'gv_c': np.float64(-9.74), 'ge_type': 'j2', 'ge_e': np.float64(36.46), 'ge_c': np.float64(-12.15), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.28)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 170.88%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.58, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.96), 'gv_c': np.float64(-9.74), 'ge_type': 'j2', 'ge_e': np.float64(36.46), 'ge_c': np.float64(-12.15), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.28)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_91_wind_13.csv (256 steps)
+(3/18) Testing Heading: 91, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.78, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.46), 'gv_c': np.float64(-9.62), 'ge_type': 'j2', 'ge_e': np.float64(35.96), 'ge_c': np.float64(-11.99), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.38)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 165.66%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.78, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.46), 'gv_c': np.float64(-9.62), 'ge_type': 'j2', 'ge_e': np.float64(35.96), 'ge_c': np.float64(-11.99), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.38)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_91_wind_14.csv (256 steps)
+(4/18) Testing Heading: 92, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.35, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.15), 'gv_c': np.float64(-10.04), 'ge_type': 'j2', 'ge_e': np.float64(37.65), 'ge_c': np.float64(-12.55), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.15)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 176.43%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.35, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.15), 'gv_c': np.float64(-10.04), 'ge_type': 'j2', 'ge_e': np.float64(37.65), 'ge_c': np.float64(-12.55), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.15)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_92_wind_12.csv (256 steps)
+(5/18) Testing Heading: 92, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.55, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.54), 'gv_c': np.float64(-9.88), 'ge_type': 'j2', 'ge_e': np.float64(37.04), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.25)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 163.69%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.55, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.54), 'gv_c': np.float64(-9.88), 'ge_type': 'j2', 'ge_e': np.float64(37.04), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.25)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_92_wind_13.csv (256 steps)
+(6/18) Testing Heading: 92, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.75, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.03), 'gv_c': np.float64(-9.76), 'ge_type': 'j2', 'ge_e': np.float64(36.53), 'ge_c': np.float64(-12.18), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.35)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 161.73%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.75, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.03), 'gv_c': np.float64(-9.76), 'ge_type': 'j2', 'ge_e': np.float64(36.53), 'ge_c': np.float64(-12.18), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.35)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_92_wind_14.csv (256 steps)
+(7/18) Testing Heading: 93, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.33, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.73), 'gv_c': np.float64(-10.18), 'ge_type': 'j2', 'ge_e': np.float64(38.23), 'ge_c': np.float64(-12.74), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.13)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 172.23%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.33, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.73), 'gv_c': np.float64(-10.18), 'ge_type': 'j2', 'ge_e': np.float64(38.23), 'ge_c': np.float64(-12.74), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.13)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_93_wind_12.csv (256 steps)
+(8/18) Testing Heading: 93, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.53, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.11), 'gv_c': np.float64(-10.03), 'ge_type': 'j2', 'ge_e': np.float64(37.61), 'ge_c': np.float64(-12.54), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.22)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 176.87%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.53, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.11), 'gv_c': np.float64(-10.03), 'ge_type': 'j2', 'ge_e': np.float64(37.61), 'ge_c': np.float64(-12.54), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.22)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_93_wind_13.csv (256 steps)
+(9/18) Testing Heading: 93, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.72, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.61), 'gv_c': np.float64(-9.9), 'ge_type': 'j2', 'ge_e': np.float64(37.11), 'ge_c': np.float64(-12.37), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.32)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_0) Real-time speed = 164.93%
+      -(Eval seed_0) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_0 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.72, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.61), 'gv_c': np.float64(-9.9), 'ge_type': 'j2', 'ge_e': np.float64(37.11), 'ge_c': np.float64(-12.37), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.32)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_0_heading_93_wind_14.csv (256 steps)
+
+--- Processing seed_1 ---
+(10/18) Testing Heading: 91, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.38, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.55), 'gv_c': np.float64(-9.89), 'ge_type': 'j2', 'ge_e': np.float64(37.05), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.18)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 156.18%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.38, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.55), 'gv_c': np.float64(-9.89), 'ge_type': 'j2', 'ge_e': np.float64(37.05), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.18)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_91_wind_12.csv (256 steps)
+(11/18) Testing Heading: 91, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.58, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.96), 'gv_c': np.float64(-9.74), 'ge_type': 'j2', 'ge_e': np.float64(36.46), 'ge_c': np.float64(-12.15), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.28)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 158.77%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.58, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.96), 'gv_c': np.float64(-9.74), 'ge_type': 'j2', 'ge_e': np.float64(36.46), 'ge_c': np.float64(-12.15), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.28)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_91_wind_13.csv (256 steps)
+(12/18) Testing Heading: 91, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.78, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.46), 'gv_c': np.float64(-9.62), 'ge_type': 'j2', 'ge_e': np.float64(35.96), 'ge_c': np.float64(-11.99), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.38)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 145.63%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 91, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 91, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.78, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(38.46), 'gv_c': np.float64(-9.62), 'ge_type': 'j2', 'ge_e': np.float64(35.96), 'ge_c': np.float64(-11.99), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.75), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.38)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_91_wind_14.csv (256 steps)
+(13/18) Testing Heading: 92, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.35, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.15), 'gv_c': np.float64(-10.04), 'ge_type': 'j2', 'ge_e': np.float64(37.65), 'ge_c': np.float64(-12.55), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.15)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 160.13%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.35, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.15), 'gv_c': np.float64(-10.04), 'ge_type': 'j2', 'ge_e': np.float64(37.65), 'ge_c': np.float64(-12.55), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.15)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_92_wind_12.csv (256 steps)
+(14/18) Testing Heading: 92, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.55, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.54), 'gv_c': np.float64(-9.88), 'ge_type': 'j2', 'ge_e': np.float64(37.04), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.25)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 146.56%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.55, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.54), 'gv_c': np.float64(-9.88), 'ge_type': 'j2', 'ge_e': np.float64(37.04), 'ge_c': np.float64(-12.35), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.25)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_92_wind_13.csv (256 steps)
+(15/18) Testing Heading: 92, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.75, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.03), 'gv_c': np.float64(-9.76), 'ge_type': 'j2', 'ge_e': np.float64(36.53), 'ge_c': np.float64(-12.18), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.35)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 161.01%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 92, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 92, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.75, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.03), 'gv_c': np.float64(-9.76), 'ge_type': 'j2', 'ge_e': np.float64(36.53), 'ge_c': np.float64(-12.18), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.5), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.35)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_92_wind_14.csv (256 steps)
+(16/18) Testing Heading: 93, Wind: 12 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.33, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.73), 'gv_c': np.float64(-10.18), 'ge_type': 'j2', 'ge_e': np.float64(38.23), 'ge_c': np.float64(-12.74), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.13)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 175.16%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 12, 'initial_boat_speed': 11.33, 'external_wave_amplitudes': [np.float64(0.55), np.float64(0.32)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.2), np.float64(3.8)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.73), 'gv_c': np.float64(-10.18), 'ge_type': 'j2', 'ge_e': np.float64(38.23), 'ge_c': np.float64(-12.74), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(15.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.13)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_93_wind_12.csv (256 steps)
+(17/18) Testing Heading: 93, Wind: 13 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.53, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.11), 'gv_c': np.float64(-10.03), 'ge_type': 'j2', 'ge_e': np.float64(37.61), 'ge_c': np.float64(-12.54), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.22)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 161.08%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 13, 'initial_boat_speed': 12.53, 'external_wave_amplitudes': [np.float64(0.7), np.float64(0.38)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.3), np.float64(4.2)], 'gv_ris': 'gv0', 'gv_e': np.float64(40.11), 'gv_c': np.float64(-10.03), 'ge_type': 'j2', 'ge_e': np.float64(37.61), 'ge_c': np.float64(-12.54), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(18.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.22)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_93_wind_13.csv (256 steps)
+(18/18) Testing Heading: 93, Wind: 14 ...
+ Sensors : No log_dir provided, nothing will be logged! 
+Actual bullet time step = 0.01
+
+Bullet substeps = 3
+
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.72, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.61), 'gv_c': np.float64(-9.9), 'ge_type': 'j2', 'ge_e': np.float64(37.11), 'ge_c': np.float64(-12.37), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.32)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+
+   Evironment perfs:
+      -(Eval seed_1) Real-time speed = 262.92%
+      -(Eval seed_1) Simulated-time  = 122.40 seconds
+
+   Reset Eval seed_1 env. to :
+     - Environment params: {'autopilot_aggressivity': 1, 'delta_pos': 0, 'target_heading': 93, 'swell_delta_amplitude': 0, 'swell_delta_period': 0, 'swell_delta_direction': 0}
+     - Simulation params : {'initial_heading': 93, 'wind_direction': 0, 'wind_speed': 14, 'initial_boat_speed': 13.72, 'external_wave_amplitudes': [np.float64(0.85), np.float64(0.44)], 'external_wave_directions': [0, 0], 'external_wave_periods': [np.float64(6.4), np.float64(4.6)], 'gv_ris': 'gv0', 'gv_e': np.float64(39.61), 'gv_c': np.float64(-9.9), 'ge_type': 'j2', 'ge_e': np.float64(37.11), 'ge_c': np.float64(-12.37), 'kdf_pos': (np.float64(3.0), np.float64(0.0), np.float64(-3.0)), 'kdf_angles': (np.float64(-0.0), np.float64(21.25), np.float64(-0.0)), 'kdf_rakes': (np.float64(0.0), np.float64(0.0), np.float64(3.32)), 'kdf_flaps': (np.float64(-0.0), np.float64(-0.0), np.float64(-0.0)), 'rudd_pos': [0, 0, 0], 'rudd_rakes': [0, 0, 0], 'mast_roll': 0, 'mast_tilt': 0}
+     - Running 2 initial dummy steps...Done!
+  [Done] Saved test_mlp_seed_1_heading_93_wind_14.csv (256 steps)
+
+All evaluations complete.

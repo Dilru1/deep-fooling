@@ -7,9 +7,9 @@
 
 <br/>
 
-> **"Assigning the helm to neural networks trained to optimize the boat's trajectory."**
 
-## 🌊 Overview
+
+## Overview
 
 **DeepSkipper** is a Deep Reinforcement Learning (DRL) project developed in the context of the **SMART-DATA (2025-2026)** specialization at **ENSAI**, in collaboration with the startup **Nautia**.
 
@@ -17,7 +17,7 @@ Racing boats, particularly those in solo round-the-world races like the *Vendée
 
 With the advent of **foils**—underwater wings that lift the hull to reduce drag—new steering strategies are required. This project aims to train neural networks (PPO agents) capable of mastering these dynamics to optimize speed and stability under varying environmental conditions.
 
-## 🚀 Features
+## Features
 
 * **Algorithms:** Proximal Policy Optimization (PPO) via `Stable-Baselines3`.
 * **Architectures:**

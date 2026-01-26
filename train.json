@@ -1,0 +1,51 @@
+{
+ "global":
+  {
+     "dataPath":"sailboats/imoca_foil",
+     "rewardModule":"./rewards.py",
+     "rewardFunc":"cmg_reward",
+     "rewardParams":{"delta_heading_max":45, "oob_cost":50},
+     "targetFrequency":2,
+     "actionType":"heading_correction",
+     "actionParam":1,
+     "deadStepNb":2,
+     "outofBound":"True", 
+     "waveGeneration": "False",
+     "renderMode":"human_fast",
+     "logFlags":[],
+     "maxStepNbPerEpisode": 512, 
+     "train": "True"
+  },
+ 
+ "boat":
+  {
+     "maxRudderAngle":40,
+     "polarFile":"polar.csv",
+     "sailsConfFile":"sails.csv",
+     "FrontAppendicesConfFile":"front_appendices.csv",
+     "autoSetSail":"True",
+     "autoSetSailModes":["flap"]
+  },
+ 
+  "target":
+  {
+     "target_headings_min_max":[90,140],
+     "delta_pos_width":1,
+     "delta_heading_width":8
+  },
+ 
+ "wind":
+  {
+     "wind_speeds_min_max":[10,18]	
+  },
+ 
+ "externalwaves":
+  {
+     "swellGeneration": "False"
+  } ,
+ 
+  "autopilot":
+  { 
+     "aggressivity_min_max":[1,1]
+  }
+}
