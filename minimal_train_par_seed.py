@@ -6,6 +6,7 @@ from pathlib import Path
 from tqdm.auto import tqdm
 from typing import Callable
 
+#ADD LINEAR SCHEDULAR
 
 # Gymnasium & SB3 Imports
 from gymnasium.wrappers import FlattenObservation
