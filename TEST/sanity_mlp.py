@@ -17,8 +17,6 @@ from stable_baselines3.common.vec_env import VecNormalize
 # --- Configuration ---
 CHECKPOINT_CSV = "best_checkpoints_found.csv"
 EVAL_ENV_FILE = "test.json"
-BASE_OUTPUT_DIR = Path("MLP")
-BASE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 TARGET_FLAG = "Par_250000_MLP" 
 
@@ -34,20 +32,7 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
         print(f"  [Error] Stats file not found: {stats_path}")
         return
     
-    base_name = f"eval_{run_id}_H{heading}_W{wind}"
-    csv_path = BASE_OUTPUT_DIR / f"{base_name}.csv"
-    txt_path = BASE_OUTPUT_DIR / f"{base_name}.txt"
 
-    if csv_path.exists():
-        print(f"  [Skip] {base_name} exists.")
-        return
-
-    # 2. Extract Static Simulation Metadata
-    # These remain constant for the entire episode
-    sim_p = params.get('simulation_params', {})
-    wave_amplitudes = sim_p.get('external_wave_amplitudes', [0])
-    max_wave_amp = max(wave_amplitudes) if isinstance(wave_amplitudes, list) else wave_amplitudes
-    foil_rake = sim_p.get('kdf_rakes', [0, 0, 0])[2] # Usually the 3rd index
 
     # 3. Modify current params
     current_params = copy.deepcopy(params)
@@ -97,54 +82,6 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
             original_obs = env.unnormalize_obs(obs)
             flat_obs = original_obs[0]
             
-            # INFO Dictionary Extraction (Sensory Inputs)
-            info = infos[0]
-            
-            current_action = action[0]
-            slew_rate = abs(current_action - last_action)
-            last_action = current_action
-
-            data_records.append({
-            "step": step_ct,
-            "pos_x": info.get('current_pos')[0],
-            "pos_y": info.get('current_pos')[1],
-        
-            # --- Static Metadata ---
-            "target_heading": heading,
-            "wind_speed": wind,
-
-            # --- Navigation Performance ---
-            "sog_knots": flat_obs[index_map['ground_speed']],
-            "cmg_env": flat_obs[index_map['cmg']],
-            "xte_error": info.get('ortho_dist_otr', 0),        # Cross-Track Error
-            "heading_err": info.get('heading_deviation', 0),   # Precision
-            "progress": info.get('proj_dist_from_start', 0),   # Net distance made
-            "course_relative": flat_obs[index_map['course_relative']], # Ground Speed m/s
-            "heading_relative": flat_obs[index_map['heading_relative']], 
-            
-            # --- Agent Behavior ---
-            "action_offset": current_action,
-            "slew_rate": slew_rate, #stability indicator
-            "reward": reward[0]
-            })
-
-            if done[0]:
-                break
-                
-        # 5. Save Results
-        df = pd.DataFrame(data_records)
-        df.to_csv(csv_path, index=False)
-        
-        #with open(txt_path, "w") as f:
-        #    f.write(f"Detailed Evaluation: {run_id}\n")
-        #    f.write(f"{'='*50}\n")
-        #    f.write(f"Target Heading: {heading} | Wind: {wind} | Max Wave: {max_wave_amp}\n")
-        #    f.write(f"Final SOG (Avg): {df['sog_knots'].mean():.2f} knots\n")
-        #    f.write(f"Total Steps: {step_ct} | Total Reward: {total_reward:.2f}\n")
-        #    f.write(f"Avg Rudder Torque: {df['rudder_torque'].mean():.2f} N\n")
-        #    f.write(f"Checkpoint: {model_path.name}\n")
-
-        #print(f"  [Done] Saved {base_name}")
 
     except Exception as e:
         print(f"  [Error] Runtime error: {e}")
@@ -170,7 +107,7 @@ def main():
     winds = base_params["wind"]["wind_speeds"]
     combinations = list(itertools.product(headings, winds))
     
-    cm = ContextManager(headless=True)
+    cm = ContextManager(headless=False)
     
     for _, row in checkpoints_df.iterrows():
         for heading, wind in combinations:

@@ -4,6 +4,7 @@ import copy
 from pathlib import Path
 import numpy as np
 import pandas as pd
+import os
 
 # Environment Imports
 from boatsgym.envs.consigne.sailboat_consigne import SailboatEnv_consigne 
@@ -13,191 +14,185 @@ from stable_baselines3.common.vec_env.dummy_vec_env import DummyVecEnv
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import VecNormalize, VecFrameStack
 
-# Import custom extractor if needed for loading, though PPO.load usually handles it 
-# provided the code is in path.
-from cnn_extractor import HistoryCNNExtractor 
-
 # --- Configuration ---
-# Update this to point to your 1DCNN model parent directory
-PARENT_DIR = Path("../model/Par_250000_1DCNN") 
+CHECKPOINT_CSV = "best_checkpoints_found.csv"
 EVAL_ENV_FILE = "test.json"
-OUTPUT_DIR = Path("Output_CSV_1DCNN")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+# Updated directory name to match the architecture flag
+BASE_OUTPUT_DIR = Path("1DCNN")
+BASE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# Frame Stack Settings
+TARGET_FLAG = "Par_250000_1DCNN" 
 N_STACK = 4
 
-def run_single_condition(seed_path, heading, wind, params, cm):
+def run_single_condition(checkpoint_row, heading, wind, params, cm):
     """
-    Runs a single episode for a specific Seed + Heading + Wind combination
-    using the 1D CNN FrameStack configuration.
+    Runs an episode for the 1DCNN champion using identical headers to the MLP version.
     """
-    seed_name = seed_path.name
+    run_id = checkpoint_row['ID']
     
-    # 1. Modify params to FORCE this specific condition
+    # 1. Setup Paths
+    model_path = Path(checkpoint_row['Checkpoint_Path'])
+    stats_name = model_path.name.replace(".zip", "").replace("ppo_sailboat_", "ppo_sailboat_vecnormalize_") + ".pkl"
+    stats_path = model_path.parent / stats_name
+
+    if not stats_path.exists():
+        print(f"  [Error] Stats file not found: {stats_path}")
+        return
+    
+    base_name = f"eval_{run_id}_H{heading}_W{wind}"
+    csv_path = BASE_OUTPUT_DIR / f"{base_name}.csv"
+    txt_path = BASE_OUTPUT_DIR / f"{base_name}.txt"
+
+    if csv_path.exists():
+        print(f"  [Skip] {base_name} exists.")
+        return
+
+    # 2. Extract Static Simulation Metadata (from params)
+    sim_p = params.get('simulation_params', {})
+    wave_amplitudes = sim_p.get('external_wave_amplitudes', [0])
+    max_wave_amp = max(wave_amplitudes) if isinstance(wave_amplitudes, list) else wave_amplitudes
+    foil_rake = sim_p.get('kdf_rakes', [0, 0, 0])[2] 
+
+    # 3. Setup Environment
     current_params = copy.deepcopy(params)
     current_params["target"]["target_headings"] = [heading]
     current_params["wind"]["wind_speeds"] = [wind]
-    
-    # 2. Setup Paths
-    # Adjust filename if your saved model is named differently (e.g. best_model.zip)
-    model_path = seed_path / "final_model_ns128.zip" #changed to best model in this case
-    stats_path = seed_path / "vec_normalize_ns128.pkl"
-    
-    csv_filename = f"test_cnn_{seed_name}_heading_{heading}_wind_{wind}.csv"
-    output_path = OUTPUT_DIR / csv_filename
 
-    if output_path.exists():
-        print(f"  [Skip] {csv_filename} already exists.")
-        return
-
-    # 3. Create Environment
-    # We pass 'cm' to reuse the context manager (avoids opening/closing windows repeatedly)
-    env = SailboatEnv_consigne(f"Eval {seed_name}", current_params, cm=cm)
+    env = SailboatEnv_consigne(f"Eval_{run_id}", current_params, cm=cm)
     
-    # --- Get Index Map BEFORE Flattening/Stacking ---
     try:
         keys = list(env.observation_space.spaces.keys())
         index_map = {key: i for i, key in enumerate(keys)}
-        n_features = len(keys) # Usually 19
+        n_features = len(keys)
     except AttributeError:
-        print(f"  [Error] Could not retrieve keys from observation space.")
         env.close()
         return
 
-    # 4. Apply Wrappers (Order is Critical)
+    # Apply Wrappers (Critical order for 1DCNN)
     env = FlattenObservation(env)
     env = DummyVecEnv([lambda: env])
-    
-    # !!! Apply Frame Stacking !!!
     env = VecFrameStack(env, n_stack=N_STACK)
     
     try:
-        # Load Normalization Stats
+        # Load Stats & Model
         env = VecNormalize.load(str(stats_path), env)
         env.training = False
         env.norm_reward = False
-        
-        # Load Model
-        # device='cpu' forces CPU usage; remove if you want GPU
         model = PPO.load(str(model_path), env=env, device='cpu') 
-
+        print(f"  [Loaded] Model: {model_path.name}")
     except Exception as e:
-        print(f"  [Error] Could not load model/stats for {seed_name}: {e}")
+        print(f"  [Error] Load failed: {e}")
         env.close()
         return
 
-    # 5. Run Episode
+    # 4. Run Episode
     obs = env.reset()
     step_ct = 0
+    total_reward = 0
     data_records = []
+    last_action = 0.0
     
     try:
         while True:
             step_ct += 1
+            # 'action' is the agent's adjustment (os value)
             action, _ = model.predict(obs, deterministic=True)
             obs, reward, done, infos = env.step(action)
+            total_reward += reward[0]
 
-            # --- Data Extraction Logic for FrameStack ---
-            
-            # 1. Unnormalize
+            # Unnormalize and handle FrameStack offset
             original_obs = env.unnormalize_obs(obs)
-            flat_original_obs = original_obs[0]
-            
-            # 2. Calculate Offset
-            # The observation is stacked: [Frame 1 | Frame 2 | Frame 3 | Frame 4]
-            # We want the MOST RECENT frame (Frame 4), which is at the end.
+            flat_obs = original_obs[0]
+            # offset jumps to the most recent frame in the stack
             offset = (N_STACK - 1) * n_features
-
-            # 3. Extract Current Values using Offset
-            current_cmg = flat_original_obs[offset + index_map['cmg']]
-            current_gs = flat_original_obs[offset + index_map['ground_speed']]
-            current_course = flat_original_obs[offset + index_map['course_relative']]
-            current_heading_rel = flat_original_obs[offset + index_map['heading_relative']]
-
-            # 4. Extract Position (from infos)
-            current_pos = infos[0].get('current_pos', [0, 0]) 
-            pos_dist = infos[0].get('proj_dist_from_start', np.array([np.nan]))
             
-            # 5. Verification Calculation
-            calc_cmg = current_gs * np.cos(np.deg2rad(current_course))
+            info = infos[0]
+            current_pos = info.get('current_pos', [0, 0])
+            current_action = action[0][0] if isinstance(action[0], (list, np.ndarray)) else action[0]
+            slew_rate = abs(current_action - last_action)
+            last_action = current_action
 
+            # 5. Record Data with headers identical to MLP case
             data_records.append({
-                "step": step_ct,
-                "proj_dist": pos_dist,
-                "pos_x": current_pos[0],
-                "pos_y": current_pos[1],
-                "cmg_env": current_cmg,
-                "cmg_calc": calc_cmg,
-                "ground_speed": current_gs,
-                "course_relative": current_course,
-                "heading_relative": current_heading_rel,
-                "reward": reward[0],
-                "action": action[0]
+            "step": step_ct,
+            "pos_x": current_pos[0],
+            "pos_y": current_pos[1],
+        
+            # --- Static Metadata ---
+            "target_heading": heading,
+            "wind_speed": wind,
+
+            
+            # --- Navigation Performance (Using offset for current state) ---
+            "sog_knots": flat_obs[offset + index_map['ground_speed']], 
+            "cmg_deg": flat_obs[offset + index_map['cmg']], 
+            "xte_error": info.get('ortho_dist_otr', 0),
+            "heading_err": info.get('heading_deviation', 0),
+            "progress": info.get('proj_dist_from_start', 0),   # Net distance made
+            "course_relative": flat_obs[offset + index_map['course_relative']],
+            "heading_relative": flat_obs[offset + index_map['heading_relative']],
+
+
+            # --- Agent Behavior ---
+            "action_offset": current_action,
+            "slew_rate": slew_rate, #stability indicator
+            "reward": reward[0]
             })
 
-            if done[0]:
-                break
+            if done[0]: break
                 
-        # 6. Save CSV
+        # 6. Save Outputs
         df = pd.DataFrame(data_records)
-        df.to_csv(output_path, index=False)
-        print(f"  [Done] Saved {csv_filename} ({step_ct} steps)")
+        df.to_csv(csv_path, index=False)
+        
+        #with open(txt_path, "w") as f:
+        #    f.write(f"Detailed Evaluation: {run_id} (1DCNN)\n")
+        #    f.write(f"{'='*50}\n")
+        #    f.write(f"Architecture: {TARGET_FLAG}\n")
+        #    f.write(f"Target Heading: {heading} | Wind: {wind}\n")
+        #    f.write(f"Final SOG (Avg): {df['sog_knots'].mean():.2f} knots\n")
+        #    f.write(f"Total Steps: {step_ct} | Total Reward: {total_reward:.2f}\n")
+        #    f.write(f"Avg Action Offset: {df['action_offset'].mean():.4f}\n")
+        #    f.write(f"Checkpoint: {model_path.name}\n")
+
+        #print(f"  [Saved] {base_name} CSV/TXT")
 
     except Exception as e:
-        print(f"  [Error] Runtime error in {seed_name}: {e}")
+        print(f"  [Error] Runtime error: {e}")
     finally:
         env.close()
 
-
 def main():
-    # 1. Load Base Configuration
-    if not Path(EVAL_ENV_FILE).exists():
-        print(f"Error: {EVAL_ENV_FILE} not found.")
+    if not Path(CHECKPOINT_CSV).exists():
+        print(f"Error: {CHECKPOINT_CSV} not found.")
         return
-        
+    
+    df = pd.read_csv(CHECKPOINT_CSV)
+    
+    # Filter for 1DCNN entries only
+    checkpoints_df = df[df['Architecture'] == TARGET_FLAG]
+
+    if checkpoints_df.empty:
+        print(f"No models found matching: {TARGET_FLAG}")
+        return
+    
+    print(f"Target flag: {TARGET_FLAG} | Processing {len(checkpoints_df)} seeds.")
+
     with open(EVAL_ENV_FILE) as f:
         base_params = json.load(f)
 
-    # 2. Extract Conditions to Test
     headings = base_params["target"]["target_headings"]
     winds = base_params["wind"]["wind_speeds"]
-    
-    # Generate all pairs
     combinations = list(itertools.product(headings, winds))
-    print(f"Found {len(combinations)} conditions to test per seed.")
 
-    # 3. Setup Context Manager (headless=True for faster batch processing)
-    # Set headless=False if you want to watch the rendering (slower)
     cm = ContextManager(headless=True)
 
-    # 4. Find Seeds
-    seed_dirs = sorted(list(PARENT_DIR.glob("seed_*")))
-    if not seed_dirs:
-        print(f"No seed directories found in {PARENT_DIR}.")
-        return
-
-    # 5. Master Loop
-    total_tasks = len(seed_dirs) * len(combinations)
-    count = 0
-    
-    print(f"Starting evaluation on {len(seed_dirs)} seeds...")
-    
-    for seed_path in seed_dirs:
-        print(f"\n--- Processing {seed_path.name} ---")
+    for _, row in checkpoints_df.iterrows():
+        print(f"\n--- Evaluating Champion: {row['ID']} ---")
         for heading, wind in combinations:
-            count += 1
-            print(f"({count}/{total_tasks}) Testing Heading: {heading}, Wind: {wind} ...")
-            
-            run_single_condition(
-                seed_path=seed_path,
-                heading=heading,
-                wind=wind,
-                params=base_params,
-                cm=cm
-            )
+            run_single_condition(row, heading, wind, base_params, cm)
 
-    print("\nAll evaluations complete.")
+    print(f"\nEvaluation completed for {TARGET_FLAG}.")
 
 if __name__ == "__main__":
     main()

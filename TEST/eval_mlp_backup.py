@@ -65,9 +65,6 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
 
     env = FlattenObservation(env)
     env = DummyVecEnv([lambda: env])
-
-    print("Dilruwan")
-    print(index_map)
     
     try:
         env = VecNormalize.load(str(stats_path), env)
@@ -84,8 +81,7 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
     step_ct = 0
     total_reward = 0
     data_records = []
-    last_action = 0.0
-
+    
     try:
         while True:
             step_ct += 1
@@ -99,33 +95,30 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
             
             # INFO Dictionary Extraction (Sensory Inputs)
             info = infos[0]
-            
-            current_action = action[0]
-            slew_rate = abs(current_action - last_action)
-            last_action = current_action
+            current_pos = info.get('current_pos', [0, 0])
 
             data_records.append({
-            "step": step_ct,
-            "pos_x": info.get('current_pos')[0],
-            "pos_y": info.get('current_pos')[1],
-        
-            # --- Static Metadata ---
-            "target_heading": heading,
-            "wind_speed": wind,
-
-            # --- Navigation Performance ---
-            "sog_knots": flat_obs[index_map['ground_speed']],
-            "cmg_env": flat_obs[index_map['cmg']],
-            "xte_error": info.get('ortho_dist_otr', 0),        # Cross-Track Error
-            "heading_err": info.get('heading_deviation', 0),   # Precision
-            "progress": info.get('proj_dist_from_start', 0),   # Net distance made
-            "course_relative": flat_obs[index_map['course_relative']], # Ground Speed m/s
-            "heading_relative": flat_obs[index_map['heading_relative']], 
-            
-            # --- Agent Behavior ---
-            "action_offset": current_action,
-            "slew_rate": slew_rate, #stability indicator
-            "reward": reward[0]
+                "step": step_ct,
+                # --- Static Metadata ---
+                "target_heading": heading,
+                "wind_speed": wind,
+                "wave_amp_max": max_wave_amp,
+                "foil_rake_init": foil_rake,
+                # --- Dynamic Navigation ---
+                "pos_x": current_pos[0],
+                "pos_y": current_pos[1],
+                "sog_knots": info.get('sog', 0), # Speed Over Ground
+                "cmg_deg": flat_obs[index_map['cmg']], # Course Made Good
+                "gs_ms": flat_obs[index_map['ground_speed']], # Ground Speed m/s
+                # --- Control & Effort ---
+                "action_os": action[0], # The RL agent's offset
+                "rudder_angle": info.get('rudder_angle', 0),
+                "rudder_torque": info.get('rudder_torque', 0),
+                "keel_angle": info.get('keel_angle', 0),
+                # --- Environmental ---
+                "twa": info.get('twa', 0), # True Wind Angle
+                "awa": info.get('awa', 0), # Apparent Wind Angle
+                "reward": reward[0],
             })
 
             if done[0]:
@@ -135,16 +128,16 @@ def run_single_condition(checkpoint_row, heading, wind, params, cm):
         df = pd.DataFrame(data_records)
         df.to_csv(csv_path, index=False)
         
-        #with open(txt_path, "w") as f:
-        #    f.write(f"Detailed Evaluation: {run_id}\n")
-        #    f.write(f"{'='*50}\n")
-        #    f.write(f"Target Heading: {heading} | Wind: {wind} | Max Wave: {max_wave_amp}\n")
-        #    f.write(f"Final SOG (Avg): {df['sog_knots'].mean():.2f} knots\n")
-        #    f.write(f"Total Steps: {step_ct} | Total Reward: {total_reward:.2f}\n")
-        #    f.write(f"Avg Rudder Torque: {df['rudder_torque'].mean():.2f} N\n")
-        #    f.write(f"Checkpoint: {model_path.name}\n")
+        with open(txt_path, "w") as f:
+            f.write(f"Detailed Evaluation: {run_id}\n")
+            f.write(f"{'='*50}\n")
+            f.write(f"Target Heading: {heading} | Wind: {wind} | Max Wave: {max_wave_amp}\n")
+            f.write(f"Final SOG (Avg): {df['sog_knots'].mean():.2f} knots\n")
+            f.write(f"Total Steps: {step_ct} | Total Reward: {total_reward:.2f}\n")
+            f.write(f"Avg Rudder Torque: {df['rudder_torque'].mean():.2f} N\n")
+            f.write(f"Checkpoint: {model_path.name}\n")
 
-        #print(f"  [Done] Saved {base_name}")
+        print(f"  [Done] Saved {base_name}")
 
     except Exception as e:
         print(f"  [Error] Runtime error: {e}")

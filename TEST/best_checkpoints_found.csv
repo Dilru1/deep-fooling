@@ -1,0 +1,3 @@
+ID,Target_Step,Best_Step,Reward,Architecture,Checkpoint_Path,Checkpoint_Name
+model_Par_250000_1DCNN_seed_1,222720,225000,7466.363138659106,Par_250000_1DCNN,/home/ensai/Desktop/Nautia/2026/final2/jan27/model/Par_250000_1DCNN/seed_1/cheakpoints/ppo_sailboat_225000_steps.zip,ppo_sailboat_225000_steps.zip
+model_Par_250000_MLP_seed_0,245120,245000,7535.828316461801,Par_250000_MLP,/home/ensai/Desktop/Nautia/2026/final2/jan27/model/Par_250000_MLP/seed_0/cheakpoints/ppo_sailboat_245000_steps.zip,ppo_sailboat_245000_steps.zip

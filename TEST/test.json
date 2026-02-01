@@ -13,7 +13,7 @@
      "waveGeneration": "False",
      "renderMode":"human_fast",
      "logFlags":[],
-     "maxStepNbPerEpisode": 256,
+     "maxStepNbPerEpisode": 512,
       "train": "False"
   },
  
@@ -29,12 +29,12 @@
  
   "target":
   {
-     "target_headings":[95,98,100]
+     "target_headings":[85, 95, 115, 135, 145]
   },
  
  "wind":
   {
-     "wind_speeds":[12,16]	
+     "wind_speeds":[10, 14, 18, 20]	
   },
  
  "externalwaves":
