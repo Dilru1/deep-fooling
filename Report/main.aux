@@ -1,0 +1,81 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\abx@aux@refcontext{none/global//global/global}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Autonomous Navigation and Control via Reinforcement Learning}{1}{subsection.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The IMOCA 60 \emph  {Malizia Seaexplorer}, one of the world's fastest monohulls.\relax }}{1}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:imoca}{{1}{1}{The IMOCA 60 \emph {Malizia Seaexplorer}, one of the world's fastest monohulls.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Principles of Sailboat Dynamics}{2}{subsection.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sailing dynamics and components of a sailboat. (A \& B) showing the keel (green) for lateral stability. (C) Vector diagram of CMG, course offset, and cross-track error (XTE). (D) Stern close-up showing the rudder (red) for steering.\relax }}{2}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:boats}{{2}{2}{Sailing dynamics and components of a sailboat. (A \& B) showing the keel (green) for lateral stability. (C) Vector diagram of CMG, course offset, and cross-track error (XTE). (D) Stern close-up showing the rudder (red) for steering.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Problem Definition and Navigation Challenge}{3}{subsection.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Simulation Environment: \emph  {BoatSimulator}}{3}{subsubsection.1.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The \emph  {BoatSimulator} interface, featuring the system control dashboard (left) and 3D environmental viewport (right).\relax }}{3}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:simg}{{3}{3}{The \emph {BoatSimulator} interface, featuring the system control dashboard (left) and 3D environmental viewport (right).\relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2}Baseline PID Performance and Navigation Limitations}{3}{subsubsection.1.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Trajectory toward $90^\circ $ under 12 kt wind. The blue dashed line represents the target trajectory, while the vertical red lines indicate the accumulation of XTE despite stable heading control.\relax }}{4}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:traje}{{4}{4}{Trajectory toward $90^\circ $ under 12 kt wind. The blue dashed line represents the target trajectory, while the vertical red lines indicate the accumulation of XTE despite stable heading control.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Baseline PID performance metrics. \textbf  {Left:} CMG reward over time. \textbf  {Right:} Heading error and rudder angle stabilization under constant environmental forcing.\relax }}{4}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:placeholder}{{5}{4}{Baseline PID performance metrics. \textbf {Left:} CMG reward over time. \textbf {Right:} Heading error and rudder angle stabilization under constant environmental forcing.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}State of the Art in Autonomous Sailing Agents}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Implementation Framework and Training Protocol}{5}{subsection.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Hyperparameter configuration used for training the PPO agent.\relax }}{5}{table.caption.7}\protected@file@percent }
+\newlabel{tab:hyperparameters}{{1}{5}{Hyperparameter configuration used for training the PPO agent.\relax }{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Agent Architecture and Policy Network}{5}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Temporal Feature Extraction with 1D-CNNs}{6}{subsection.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Proposed PPO Actor-Critic network featuring a history-based 1D-CNN feature extractor. The input comprises a temporal stack of 4 consecutive observations ($\DOTSB \sum@ \slimits@ _{i=0}^{3} \mathbf  {o}_{t-i}$). With each observation vector containing 19 physical features, the resulting 76-dimensional input is reshaped into a $(19 \text  { channels} \times 4 \text  { time steps})$ tensor. The CNN architecture employs two Conv1D layers to extract temporal patterns, which are then projected into a 64-dimensional latent representation. This embedding is shared by the Actor and Critic MLP branches to determine the optimal 3D action vector and scalar state value, respectively.\relax }}{6}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:1dcnn}{{6}{6}{Proposed PPO Actor-Critic network featuring a history-based 1D-CNN feature extractor. The input comprises a temporal stack of 4 consecutive observations ($\sum _{i=0}^{3} \mathbf {o}_{t-i}$). With each observation vector containing 19 physical features, the resulting 76-dimensional input is reshaped into a $(19 \text { channels} \times 4 \text { time steps})$ tensor. The CNN architecture employs two Conv1D layers to extract temporal patterns, which are then projected into a 64-dimensional latent representation. This embedding is shared by the Actor and Critic MLP branches to determine the optimal 3D action vector and scalar state value, respectively.\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Hierarchical dataflow through the 1D-CNN feature extractor. \textbf  {Panel 1:} Raw input matrix ($19 \text  { features} \times 4 \text  { steps}$). \textbf  {Panel 2:} After the first convolution ($k=2$), the temporal dimension is reduced to 3; the 32 feature channels act as first-order differential operators. \textbf  {Panel 3:} The second convolution reduces the temporal window to 2, processing velocity signals to extract second-order dynamics (acceleration). \textbf  {Panel 4:} The latent representation, flattened to $64 \text  { channels} \times 2 \text  { steps} = 128$, provides a high-level physical abstraction for the Actor-Critic heads.\relax }}{7}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:dataflow}{{7}{7}{Hierarchical dataflow through the 1D-CNN feature extractor. \textbf {Panel 1:} Raw input matrix ($19 \text { features} \times 4 \text { steps}$). \textbf {Panel 2:} After the first convolution ($k=2$), the temporal dimension is reduced to 3; the 32 feature channels act as first-order differential operators. \textbf {Panel 3:} The second convolution reduces the temporal window to 2, processing velocity signals to extract second-order dynamics (acceleration). \textbf {Panel 4:} The latent representation, flattened to $64 \text { channels} \times 2 \text { steps} = 128$, provides a high-level physical abstraction for the Actor-Critic heads.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Training Protocol}{7}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Reward Design: CMG Optimization Objective}{7}{subsubsection.2.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results and Discussion}{9}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Training Convergence and Optimal Checkpoint Selection}{9}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Training convergence and peak performance for MLP and 1DCNN architectures. Solid lines represent the exponential moving average (EMA, $\alpha =0.8$) of episode mean reward across all seeds. Shaded regions denote standard deviation ($\pm 1\sigma $), while faint trajectories correspond to individual runs. Vertical markers indicate peak performance checkpoints.\relax }}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:ep_mean}{{8}{9}{Training convergence and peak performance for MLP and 1DCNN architectures. Solid lines represent the exponential moving average (EMA, $\alpha =0.8$) of episode mean reward across all seeds. Shaded regions denote standard deviation ($\pm 1\sigma $), while faint trajectories correspond to individual runs. Vertical markers indicate peak performance checkpoints.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Evaluation Framework and Performance Metrics}{9}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evaluation Parameter Grid\relax }}{10}{table.caption.11}\protected@file@percent }
+\newlabel{tab:test_conditions}{{2}{10}{Evaluation Parameter Grid\relax }{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Steady-State Performance Comparison}{10}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Steady-state CMG comparison across test cases. Performance differences are highlighted for out-of-distribution wind speeds ($20\,\text  {kts}$) and boundary headings ($85^\circ $, $145^\circ $).\relax }}{10}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:cmg_bars}{{9}{10}{Steady-state CMG comparison across test cases. Performance differences are highlighted for out-of-distribution wind speeds ($20\,\text {kts}$) and boundary headings ($85^\circ $, $145^\circ $).\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Polar performance distribution illustrating operational efficiency across headings. The 1DCNN maintains a broader and more consistent operational envelope.\relax }}{11}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:polar_plots}{{10}{11}{Polar performance distribution illustrating operational efficiency across headings. The 1DCNN maintains a broader and more consistent operational envelope.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Control Dynamics and Temporal Stability}{11}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Spatiotemporal heatmap of steering action offsets for MLP (left) and 1DCNN (right) across varying heading (H) and wind (W) conditions. The color gradient represents the difference between consecutive actions ($\Delta a_t = a_t - a_{t-1}$), where 0 (white) indicates a maintained course and 2 (dark red/blue) indicates maximum rudder deflection.\relax }}{12}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:offsetmap}{{11}{12}{Spatiotemporal heatmap of steering action offsets for MLP (left) and 1DCNN (right) across varying heading (H) and wind (W) conditions. The color gradient represents the difference between consecutive actions ($\Delta a_t = a_t - a_{t-1}$), where 0 (white) indicates a maintained course and 2 (dark red/blue) indicates maximum rudder deflection.\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Trajectory Analysis}{12}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Distribution of action offsets ($\Delta a_t$) for MLP and 1DCNN across all test cases. The 1DCNN's distribution is more concentrated around zero, indicating smoother control, while the MLP exhibits a wider spread, reflecting higher jitter.\relax }}{13}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:2dtrajectory}{{12}{13}{Distribution of action offsets ($\Delta a_t$) for MLP and 1DCNN across all test cases. The 1DCNN's distribution is more concentrated around zero, indicating smoother control, while the MLP exhibits a wider spread, reflecting higher jitter.\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion and Future Work}{13}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Complete Experimental Results Table}{14}{appendix.A}\protected@file@percent }
+\newlabel{sec:vmg}{{A}{14}{Complete Experimental Results Table}{appendix.A}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Systematic comparison of navigational metrics across architectural groups, sorted by heading and wind intensity.\relax }}{14}{table.caption.16}\protected@file@percent }
+\newlabel{tab:results_sorted}{{3}{14}{Systematic comparison of navigational metrics across architectural groups, sorted by heading and wind intensity.\relax }{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Percentage CMG improvement of MLP and 1DCNN over the PID baseline. N/A indicates the model failed for that condition. Positive values (red) indicate the model outperforms PID.\relax }}{15}{table.caption.17}\protected@file@percent }
+\newlabel{tab:cmg_improvement}{{4}{15}{Percentage CMG improvement of MLP and 1DCNN over the PID baseline. N/A indicates the model failed for that condition. Positive values (red) indicate the model outperforms PID.\relax }{table.caption.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}CMG Improvement Over Baseline}{16}{appendix.B}\protected@file@percent }
+\newlabel{sec:cmg_improvement}{{B}{16}{CMG Improvement Over Baseline}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Complete Trajectory Comparison Across Architectures and Wind Conditions}{16}{appendix.C}\protected@file@percent }
+\newlabel{sec:cmg_improvement}{{C}{16}{Complete Trajectory Comparison Across Architectures and Wind Conditions}{appendix.C}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Trajectory comparison across different architectures and wind conditions.\relax }}{16}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:trajectory_grid}{{13}{16}{Trajectory comparison across different architectures and wind conditions.\relax }{figure.caption.18}{}}
+\abx@aux@read@bbl@mdfivesum{EE04F40F768DAEED26442158E95ABA61}
+\gdef \@abspage@last{20}

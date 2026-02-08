@@ -1,0 +1,10 @@
+4.1. Newtonian Mechanics and CMG Optimization
+
+The movement of the sailboat within the simulator is governed by a dynamic equilibrium of Newtonian forces and fluid-structure interactions. Propulsion is primarily generated through the Coandă Effect, where airflow remains attached to the sail's curvature, allowing it to be redirected backward. According to Newton’s Third Law, this backward deflection of air generates an equal and opposite reaction force, providing the forward thrust (Fthrust​) necessary to propel the vessel (Vboat​). The net acceleration of the boat is defined by the force balance:
+Fnet​=Fthrust​−Fdrag​
+
+where Fdrag​ represents the total hydrodynamic and aerodynamic resistance encountered during displacement.
+
+Maintaining stability and directional efficiency involves two critical underwater components: the keel and the rudder. The keel performs a dual role: it provides a righting moment to resist tipping (heeling), thereby keeping the sail upright to maximize Fthrust​, and it resists leeway (sideways drift) by converting lateral wind pressure into forward longitudinal velocity. Simultaneously, the rudder serves as the primary steering mechanism, controlling the boat’s sailing angle or relative heading (β), though active steering introduces a marginal amount of additional Fdrag​.
+
+In this simulator, the ultimate navigational objective is the maximization of Course Made Good (CMG), which is defined as the 2D projection of the boat's velocity vector onto the target trajectory. While the keel enables high vessel speed (Vboat​) and the rudder dictates the heading, the Reinforcement Learning agent must optimize the interplay between these forces. By manipulating the target heading, the agent seeks the optimal aerodynamic "groove" where the resulting velocity, when projected toward the goal, yields the highest possible CMG—effectively navigating the complex trade-off between raw speed and directional efficiency.

@@ -1,0 +1,162 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in} % Standard margins
+\usepackage{graphicx} % For plots, diagrams, and LOGO
+\usepackage{amsmath, amssymb, amsfonts} % Math symbols
+\usepackage{booktabs} % Professional tables
+\usepackage{hyperref} % Clickable links
+\usepackage{algorithm} % For algorithms
+\usepackage{algpseudocode} % For pseudocode
+\usepackage{subcaption} % For side-by-side figures
+\usepackage{listings} % For code snippets
+\usepackage{xcolor} % For colors
+\usepackage{csquotes} % For \enquote command
+\usepackage{wrapfig}   % add this in your preamble
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{todonotes}
+\usepackage{epigraph}
+\usepackage{fancyhdr}
+\usepackage{placeins}
+\pagestyle{fancy}
+\fancyhf{} % clear default headers/footers
+\usepackage{ragged2e}
+
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{ref.bib}
+
+% --- Setup for Code Listings ---
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstset{ 
+    language=Python,
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{codegray},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    numbers=left,
+    frame=single,
+    breaklines=true
+}
+
+% --- Hyperref Setup (Optional: removes red boxes around links) ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+
+\renewcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define custom colors for the code
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Setup the style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize, % Small font for compactness
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=2pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=1,
+    frame=single % Adds a border
+}
+
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Huge \textbf{Reinforcement learning of a steering model for a foiling sailboat}}
+    \vspace{1.5cm}
+    {\Large \textbf{D. Dilruwan}\textsuperscript{1} \& \textbf{W. Peifeng}\textsuperscript{1}} \\
+    \vspace{0.2cm}
+    {\large Benjamin Negrevergne\textsuperscript{2} \& Camille Negrevergne\textsuperscript{2}} \\
+    
+    \vspace{0.5cm}
+    
+    {\large \textsuperscript{1}\textit{ENSAI} \quad \textsuperscript{2}\textit{Nautia}} \\
+    
+    \vspace{0.5cm}
+    
+    \footnotesize \texttt{
+    \{peifeng.wang, dilruwan.dehiwalage-don\}@eleve.ensai.fr \\
+    \{camille, benjamin\}@nautia.fr
+    }
+    
+    \vspace{8cm} 
+    {\large \today}
+    
+    \vfill 
+
+    \raggedright
+    % REPLACE 'example-image' WITH YOUR LOGO FILENAME (e.g., logo.png)
+    \includegraphics[width= 8cm]{resources/logo/logo_nautia_ensai.pdf} 
+\end{titlepage}
+
+
+\thispagestyle{plain} 
+\begin{abstract}
+    \noindent In the context of elite offshore racing, such as the Vendée Globe\footnote{The Vendée Globe is a single handed non stop, unassisted round the world yacht race}, traditional autopilot systems are limited by their inability to optimize trajectories amidst stochastic environmental changes. With the advent of hydrofoils, which reduce drag by lifting the hull, steering complexity has increased, necessitating controllers that can proactively manage stability and speed. This study presents a Deep Reinforcement Learning (DRL) framework developed for Nautia to determine optimal steering policies in a custom Gymnasium-based simulator. The agent's task is defined as a Markov Decision Process (MDP) focused on upwind navigation under variable wind directions ($90^\circ$ to $140^\circ$) and speeds (10 to 18 knots). We evaluate and compare three distinct control strategies: a baseline PID controller, a native Multi-Layer Perceptron (MLP), and a novel 1D Convolutional Neural Network (1D CNN) architecture. Our empirical results demonstrate that the 1D CNN offers superior high-performance capabilities, achieving a peak \enquote{Course Made Good} (CMG) of \textbf{24.59 knots} in stress-test conditions ($95^\circ$ heading, 20 knots wind). Quantitatively, the 1D CNN outperformed the PID baseline in the majority of training-distribution scenarios, showing improvements of up to \textbf{+5.27\%}. Conversely, the MLP baseline struggled with stability in high-wind regimes, often underperforming the PID by significant margins. While the 1D CNN showed vulnerability to \enquote{Out-of-Bounds} failures in light-wind boundary conditions ($10$ knots), it proved to be the most robust architecture for high-speed foiling, effectively extracting temporal features from wind fluctuations to provide a competitive steering policy for modern racing sailboats.
+
+\end{abstract}
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} Deep Reinforcement Learning, Autonomous Sailing, Foiling Sailboat, 1D Convolutional Neural Network, Steering Control, Markov Decision Process, Velocity Made Good, PID Controller
+
+\newpage
+
+% --- Table of Contents ---
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+% --- Main Content ---
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{chapters/chapter1}
+%newpage
+%\input{chapters/chapter2}
+\newpage
+\input{chapters/chapter3}
+\newpage
+\input{chapters/chapter4}
+\newpage
+\input{chapters/chapter5}       
+%\input{chapters/chapter6}
+%\newpage
+
+%\bibliographystyle{plain}
+%\bibliography{ref}
+
+\newpage
+\appendix
+\input{appendices/appendix2}
+\end{document}

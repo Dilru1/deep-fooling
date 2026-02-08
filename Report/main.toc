@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Autonomous Navigation and Control via Reinforcement Learning}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Principles of Sailboat Dynamics}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Problem Definition and Navigation Challenge}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Simulation Environment: \emph {BoatSimulator}}{3}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Baseline PID Performance and Navigation Limitations}{3}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}State of the Art in Autonomous Sailing Agents}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Implementation Framework and Training Protocol}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Agent Architecture and Policy Network}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Temporal Feature Extraction with 1D-CNNs}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Training Protocol}{7}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Reward Design: CMG Optimization Objective}{7}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}Results and Discussion}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Training Convergence and Optimal Checkpoint Selection}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Evaluation Framework and Performance Metrics}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Steady-State Performance Comparison}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Control Dynamics and Temporal Stability}{11}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Trajectory Analysis}{12}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Conclusion and Future Work}{13}{section.4}%
+\contentsline {section}{\numberline {A}Complete Experimental Results Table}{14}{appendix.A}%
+\contentsline {section}{\numberline {B}CMG Improvement Over Baseline}{16}{appendix.B}%
+\contentsline {section}{\numberline {C}Complete Trajectory Comparison Across Architectures and Wind Conditions}{16}{appendix.C}%
