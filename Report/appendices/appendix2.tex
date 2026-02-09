@@ -1,7 +1,7 @@
 \section{Complete Experimental Results Table}
 \label{sec:vmg}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -91,16 +91,19 @@ Hdg ($^\circ$) & Wind (kt) & MLP & PID & 1DCNN & MLP & 1DCNN \\
 
 
 
-\section{Complete Trajectory Comparison Across Architectures and Wind Conditions}
+\section{Complete Trajectory Comparison}
 \label{sec:cmg_improvement}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\linewidth]{resources/img/appendix/trajectory_grid_pub.pdf}
-    \caption{Trajectory comparison across different architectures and wind conditions.}
+    \includegraphics[width=0.8\linewidth]{resources/img/appendix/trajectory_grid_pub.pdf}
+    \caption{Trajectory comparison across both architectures under all heading and wind conditions.}
     \label{fig:trajectory_grid}
 \end{figure}
 
-The trajectory plots provide a qualitative comparison of the steering behaviour exhibited by the three control architectures under varying wind conditions. The Baseline controller produces the most linear and geometrically smooth trajectories; however, it demonstrates increased drift under high-wind scenarios, suggesting limited adaptability to rapidly changing environmental forces. The MLP-based controller exhibits noticeable instability, particularly in low-wind cases (e.g., H:85$^\circ$ | W:10\,kt), where large oscillations and inefficient path deviations indicate insufficient control damping and reduced trajectory efficiency. 
+\justify
+The trajectory plots provide a qualitative comparison of steering behaviors across the evaluation grid. The Baseline controller produces smooth, linear paths but exhibits significant drift under high-wind conditions, indicating limited proactive adaptation. The MLP shows clear instability, particularly at $H:85^\circ \mid W:10\,\text{kt}$, where large oscillations suggest poor damping and reduced navigational efficiency. In contrast, the 1DCNN maintains the most robust trajectories, adhering closely to the intended path even under 20\,kt stress tests. A notable exception arises in light-wind conditions (10\,kt) at headings of $115^\circ$, $135^\circ$, and $145^\circ$, where aggressive micro-corrections occasionally lead to ``Out-of-Bound'' (OOB) terminations. Despite these edge-case failures, the 1DCNN consistently outperforms the other architectures in high-performance foiling scenarios.
 
-In contrast, the proposed 1DCNN architecture generates the most consistent and robust trajectories across the entire evaluation grid. Even under challenging conditions such as W:20\,kt, the 1DCNN maintains tighter path adherence with reduced lateral deviations compared to the MLP model. These results suggest an improved capability to capture and respond to the nonlinear aerodynamic and hydrodynamic dynamics inherent to high-performance foiling sailboats.
+
+
+

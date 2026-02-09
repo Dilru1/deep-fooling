@@ -16,12 +16,17 @@
 \usepackage{wrapfig}   % add this in your preamble
 \usepackage{graphicx}
 \usepackage{lipsum}
+\setlength{\marginparwidth}{2cm}
 \usepackage{todonotes}
 \usepackage{epigraph}
+\usepackage{tcolorbox}
 \usepackage{fancyhdr}
 \usepackage{placeins}
 \pagestyle{fancy}
 \fancyhf{} % clear default headers/footers
+\fancyfoot[C]{\thepage} % add page number to center footer
+\setlength{\headheight}{25.22153pt}
+\addtolength{\topmargin}{-13.22153pt}
 \usepackage{ragged2e}
 
 \usepackage[backend=biber,style=ieee]{biblatex}
@@ -94,42 +99,48 @@
 \begin{titlepage}
     \centering
     \vspace*{1cm}
-    {\Huge \textbf{Reinforcement learning of a steering model for a foiling sailboat}}
-    \vspace{1.5cm}
-    {\Large \textbf{D. Dilruwan}\textsuperscript{1} \& \textbf{W. Peifeng}\textsuperscript{1}} \\
-    \vspace{0.2cm}
-    {\large Benjamin Negrevergne\textsuperscript{2} \& Camille Negrevergne\textsuperscript{2}} \\
+    {\Large \textbf{Deep Reinforcement Learning for Steering Control\\of a Foiling Sailboat}}\\
+\vspace{1.5cm}
+
+   
+    {\textbf{D. Dilruwan}\textsuperscript{1} \& \textbf{W. Peifeng}\textsuperscript{1}} \\
+    \vspace{0.8cm}
+
+    Supervised by \\
+    {Benjamin Negrevergne\textsuperscript{2} \& Camille Negrevergne\textsuperscript{2}} \\
     
     \vspace{0.5cm}
     
-    {\large \textsuperscript{1}\textit{ENSAI} \quad \textsuperscript{2}\textit{Nautia}} \\
+    {\textsuperscript{1}\textit{ENSAI} \quad \textsuperscript{2}\href{https://nautia.fr/}{NAUTIA}} \\
     
     \vspace{0.5cm}
     
-    \footnotesize \texttt{
-    \{peifeng.wang, dilruwan.dehiwalage-don\}@eleve.ensai.fr \\
-    \{camille, benjamin\}@nautia.fr
+    {\footnotesize
+     \texttt{\{peifeng.wang, dilruwan.dehiwalage-don\}@eleve.ensai.fr}\\[2pt]
+     
+    \texttt{\{camille, benjamin\}@nautia.fr}
     }
     
-    \vspace{8cm} 
+    \vfill
     {\large \today}
     
-    \vfill 
+    \vspace{1cm}
 
     \raggedright
-    % REPLACE 'example-image' WITH YOUR LOGO FILENAME (e.g., logo.png)
-    \includegraphics[width= 8cm]{resources/logo/logo_nautia_ensai.pdf} 
+    \includegraphics[width=8cm]{resources/logo/logo_nautia_ensai.pdf} 
 \end{titlepage}
 
 
 \thispagestyle{plain} 
 \begin{abstract}
-    \noindent In the context of elite offshore racing, such as the Vendée Globe\footnote{The Vendée Globe is a single handed non stop, unassisted round the world yacht race}, traditional autopilot systems are limited by their inability to optimize trajectories amidst stochastic environmental changes. With the advent of hydrofoils, which reduce drag by lifting the hull, steering complexity has increased, necessitating controllers that can proactively manage stability and speed. This study presents a Deep Reinforcement Learning (DRL) framework developed for Nautia to determine optimal steering policies in a custom Gymnasium-based simulator. The agent's task is defined as a Markov Decision Process (MDP) focused on upwind navigation under variable wind directions ($90^\circ$ to $140^\circ$) and speeds (10 to 18 knots). We evaluate and compare three distinct control strategies: a baseline PID controller, a native Multi-Layer Perceptron (MLP), and a novel 1D Convolutional Neural Network (1D CNN) architecture. Our empirical results demonstrate that the 1D CNN offers superior high-performance capabilities, achieving a peak \enquote{Course Made Good} (CMG) of \textbf{24.59 knots} in stress-test conditions ($95^\circ$ heading, 20 knots wind). Quantitatively, the 1D CNN outperformed the PID baseline in the majority of training-distribution scenarios, showing improvements of up to \textbf{+5.27\%}. Conversely, the MLP baseline struggled with stability in high-wind regimes, often underperforming the PID by significant margins. While the 1D CNN showed vulnerability to \enquote{Out-of-Bounds} failures in light-wind boundary conditions ($10$ knots), it proved to be the most robust architecture for high-speed foiling, effectively extracting temporal features from wind fluctuations to provide a competitive steering policy for modern racing sailboats.
+    \noindent  \large In the context of elite offshore racing, such as the Vendée Globe, traditional autopilot systems are limited by their inability to optimize trajectories amidst stochastic environmental changes. With the advent of hydrofoils, which reduce drag by lifting the hull, steering complexity has increased, necessitating controllers that can proactively manage stability and speed. This study presents a Deep Reinforcement Learning (DRL) framework developed for Nautia to determine optimal steering policies in a custom Gymnasium-based simulator. The agent's task is defined as a Markov Decision Process (MDP) focused on upwind navigation under variable wind directions ($90^\circ$ to $140^\circ$) and speeds (10 to 18 knots). We evaluate and compare three distinct control strategies: a baseline PID controller, a native Multi-Layer Perceptron (MLP), and a novel 1D Convolutional Neural Network (1D CNN) architecture. Our empirical results demonstrate that the 1D CNN offers superior high-performance capabilities, achieving a peak \enquote{Course Made Good} (CMG) of \textbf{24.59 knots} in stress-test conditions ($95^\circ$ heading, 20 knots wind). Quantitatively, the 1D CNN outperformed the PID baseline in the majority of training-distribution scenarios, showing improvements of up to \textbf{+5.27\%}. Conversely, the MLP baseline struggled with stability in high-wind regimes, often underperforming the PID by significant margins. While the 1D CNN showed vulnerability to \enquote{Out-of-Bounds} failures in light-wind boundary conditions ($10$ knots), it proved to be the most robust architecture for high-speed foiling, effectively extracting temporal features from wind fluctuations to provide a competitive steering policy for modern racing sailboats.
+    \vspace{0.5cm}
+    \\
+    \noindent\textbf{Keywords:} Deep Reinforcement Learning, Foiling Sailboat, 1D Convolutional Neural Network, Steering Control, Markov Decision Process
 
+
+    
 \end{abstract}
-
-\vspace{0.5em}
-\noindent\textbf{Keywords:} Deep Reinforcement Learning, Autonomous Sailing, Foiling Sailboat, 1D Convolutional Neural Network, Steering Control, Markov Decision Process, Velocity Made Good, PID Controller
 
 \newpage
 
@@ -143,12 +154,12 @@
 \setcounter{page}{1}
 \input{chapters/chapter1}
 %newpage
-%\input{chapters/chapter2}
-\newpage
+\input{chapters/chapter2}
+
 \input{chapters/chapter3}
-\newpage
+
 \input{chapters/chapter4}
-\newpage
+
 \input{chapters/chapter5}       
 %\input{chapters/chapter6}
 %\newpage
@@ -156,7 +167,6 @@
 %\bibliographystyle{plain}
 %\bibliography{ref}
 
-\newpage
 \appendix
 \input{appendices/appendix2}
 \end{document}

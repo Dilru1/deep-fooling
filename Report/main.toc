@@ -3,20 +3,24 @@
 \contentsline {subsection}{\numberline {1.2}Principles of Sailboat Dynamics}{2}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Problem Definition and Navigation Challenge}{3}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Simulation Environment: \emph {BoatSimulator}}{3}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Baseline PID Performance and Navigation Limitations}{3}{subsubsection.1.3.2}%
-\contentsline {section}{\numberline {2}State of the Art in Autonomous Sailing Agents}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Implementation Framework and Training Protocol}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Agent Architecture and Policy Network}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Temporal Feature Extraction with 1D-CNNs}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Training Protocol}{7}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Reward Design: CMG Optimization Objective}{7}{subsubsection.2.4.1}%
-\contentsline {section}{\numberline {3}Results and Discussion}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Training Convergence and Optimal Checkpoint Selection}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Evaluation Framework and Performance Metrics}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Steady-State Performance Comparison}{10}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Control Dynamics and Temporal Stability}{11}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Trajectory Analysis}{12}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Conclusion and Future Work}{13}{section.4}%
+\contentsline {subsubsection}{\numberline {1.3.2}Baseline PID Performance and Navigation Limitations}{4}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}Proximal Policy Optimization (PPO) Algorithm}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}From Policy Gradients to PPO}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Hyperparameter Selection and Adaptation for Sailboat Navigation}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}State of the Art}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Implementation Framework and Training Protocol}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Agent Architecture and Policy Network}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Temporal Feature Extraction with 1D-CNNs}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Training Protocol}{8}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Results and Discussion}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Training Convergence and Optimal Checkpoint Selection}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Evaluation Framework and Performance Metrics}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Steady-State Performance Comparison}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Control Dynamics and Temporal Stability}{11}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Trajectory Analysis}{12}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Conclusion and Future Work}{12}{section.5}%
+\contentsline {paragraph}{Conclusion}{12}{section*.15}%
+\contentsline {paragraph}{Future Work}{13}{section*.16}%
 \contentsline {section}{\numberline {A}Complete Experimental Results Table}{14}{appendix.A}%
-\contentsline {section}{\numberline {B}CMG Improvement Over Baseline}{16}{appendix.B}%
-\contentsline {section}{\numberline {C}Complete Trajectory Comparison Across Architectures and Wind Conditions}{16}{appendix.C}%
+\contentsline {section}{\numberline {B}CMG Improvement Over Baseline}{14}{appendix.B}%
+\contentsline {section}{\numberline {C}Complete Trajectory Comparison}{15}{appendix.C}%

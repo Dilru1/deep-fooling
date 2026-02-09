@@ -1,6 +1,9 @@
-\fancyhead[R]{\textit{Autonomous sailing is not the automation of navigation — it is the learning of strategy under uncertainty.}}
-\section{Introduction}
 
+\setlength{\epigraphwidth}{0.75\textwidth}
+\epigraph{\textit{"Learning from interaction is a foundational idea underlying nearly all theories of learning and intelligence"}}{--Rich Sutton and Andrew Barto, \textit{Reinforcement Learning: An Introduction}}
+
+
+\section{Introduction}
 \subsection{Autonomous Navigation and Control via Reinforcement Learning}
 
 \begin{wrapfigure}{r}{0.45\textwidth}
@@ -13,7 +16,7 @@
 \end{wrapfigure}
 The application of Deep Reinforcement Learning (DRL) in autonomous navigation and control is becoming increasingly ubiquitous. In the context of autonomous sailing, DRL addresses a high dimensional optimal control problem characterized by nonlinear dynamics and significant environmental uncertainties. The ability of a DRL agent to learn this control problem directly correlates with performance improvements in elite competitive environments, such as the solo round the world Vendée Globe\footnote{The Vendée Globe is a non stop, round the world yacht race widely regarded as one of the most demanding sailing competitions.}. Racing environments often employ a specialized class of vessel known as a \emph{sailboat}. Compared to traditional motorized vessels sailboats operate without an engine and they rely entirely on wind as their primary power source. Nevertheless, modern racing sailboats are equipped with sophisticated autopilot systems that are essential for both sailor safety and competitive performance. Figure~\ref{fig:imoca} illustrates the IMOCA 60 class sailboat, representing the pinnacle of technological innovation and navigational complexity in offshore racing.
 
-\justify These sailboats transform navigation into a complex strategic problem in which every decision must reconcile nonlinear aerodynamic and hydrodynamic interactions with continuously evolving environmental conditions. One can naturally formulated this navigation task as a \emph{Markov Decision Process (MDP)}. A key limitation of current systems is that they typically rely on closed loop control\footnote{Closed-loop control continuously adjusts actions based on feedback from the current system state, e.g., via PID controllers.}  to maintain a fixed heading or apparent wind angle, without explicitly optimizing trajectory efficiency or speed. Under volatile conditions, human sailors often need to intervene manually to remain competitive. Maximizing the boat's velocity toward an upwind target (the Course Made Good (CMG)\footnote{Course Made Good (CMG) is defined as the two dimensional projection of the boat's velocity vector onto the target trajectory.}) requires continuous adaptation to stochastic environmental variables such as fluctuating wind vectors and changing sea states.
+\justify These sailboats transform navigation into a complex strategic problem in which every decision must reconcile nonlinear aerodynamic and hydrodynamic interactions with continuously evolving environmental conditions. One can naturally formulated this navigation task as a \emph{Markov Decision Process (MDP)}. A key limitation of current systems is that they typically rely on closed loop control\footnote{Closed-loop control continuously adjusts actions based on feedback from the current system state, e.g., via PID controllers.}  to maintain a fixed heading or apparent wind angle, without explicitly optimizing trajectory efficiency or speed. Under volatile conditions, human sailors often need to intervene manually to remain competitive. Maximizing the boat's velocity toward an upwind target (the Course Made Good (CMG) requires continuous adaptation to stochastic environmental variables such as fluctuating wind vectors and changing sea states.
 
 
 
@@ -60,7 +63,7 @@ By optimizing $F_{\text{net}}$ to maintain speed while minimizing XTE, the sailo
 The primary objective of this project is to explore how DRL can extend traditional autopilot capabilities beyond simple set point maintenance, evolving them into intelligent systems capable of strategic navigation under uncertainty.
 
 \subsubsection{Simulation Environment: \emph{BoatSimulator}} 
-This study employs a high fidelity Python-based simulation environment called \emph{BoatSimulator}\footnote{Developed at Nautia}, built using the OpenAI Gymnasium framework to model boat dynamics in open sea conditions. For RL compatibility, the simulator is packaged within \emph{boatsgym}, a wrapper compliant with the Gymnasium API. Key physical parameters governing the environment are summarized in Table \ref{table:env_params}, while the graphical user interface (GUI) and 3D visualization of the BoatSimulator are presented in Figure \ref{fig:simg}. 
+This study employs a high fidelity Python-based simulation environment called \emph{BoatSimulator}\footnote{Developed at Nautia}, built using the OpenAI Gymnasium framework to model boat dynamics in open sea conditions. For RL compatibility, the simulator is packaged within \emph{boatsgym}, a wrapper compliant with the Gymnasium API. The graphical user interface (GUI) and 3D visualization of the BoatSimulator are presented in Figure \ref{fig:simg}. 
 
 \begin{figure}[H]
     \centering
@@ -82,13 +85,13 @@ Figure \ref{fig:traje} illustrates a scenario in which the BoatSimulator's PID c
     \label{fig:traje}
 \end{figure}
 
-The performance implications of the PID controller’s limitations are further illustrated in Figure \ref{fig:placeholder}. The CMG reward representing the component of the boat’s velocity aligned with the target trajectory initially spikes as the vessel accelerates but ultimately stabilizes at a sub-optimal mean of $13.89\,\text{m/s}$. Corresponding control plots indicate that the heading error converges to a small non zero value, while the rudder angle stabilizes near $80^\circ$ to counteract wind forces. Despite these stabilizations, the system fails to maximize forward velocity toward the goal.
+The performance implications of the PID controller’s limitations are further illustrated in Figure \ref{fig:pid-performance}. The CMG reward representing the component of the boat’s velocity aligned with the target trajectory initially spikes as the vessel accelerates but ultimately stabilizes at a sub-optimal mean of $13.89\,\text{m/s}$. Corresponding control plots indicate that the heading error converges to a small non zero value, while the rudder angle stabilizes near $80^\circ$ to counteract wind forces. Despite these stabilizations, the system fails to maximize forward velocity toward the goal.
 
 \begin{figure}[H] 
     \centering 
     \includegraphics[width=1\linewidth]{resources/img/chapter1/cmg_control_first200_pub.pdf} 
     \caption{Baseline PID performance metrics. \textbf{Left:} CMG reward over time. \textbf{Right:} Heading error and rudder angle stabilization under constant environmental forcing.} 
-    \label{fig:placeholder} 
+    \label{fig:pid-performance} 
 \end{figure}
 
 Maintaining a constant heading alone is insufficient for maximizing forward progress (CMG). To address this limitation of classical closed-loop controllers, a DRL agent must learn to combine precise heading control with a strategy that proactively maximizes CMG, adapting continuously to stochastic environmental forces and moving beyond the constraints of simple set point regulation.

@@ -1,13 +1,32 @@
 \section{Conclusion and Future Work}
+%These results indicate that while temporal feature extraction in the 1DCNN significantly enhances robustness and performance under high-load conditions, its aggressive optimization may reduce stability in marginal environments where the vessel operates near physical limits. This highlights a key design consideration for autonomous foiling controllers: balancing proactive performance optimization with fail-safe reactive mechanisms during low-energy operating states.
 
-This study successfully developed and evaluated a 1D Convolutional Neural Network (1DCNN) architecture for the autonomous control of a vessel, comparing its performance against a standard Multi-Layer Perceptron (MLP) and a traditional Baseline controller. Our development of the 1DCNN focused on leveraging convolutional layers to enhance feature extraction from temporal environmental data, specifically targeting Course Made Good (CMG) optimization across diverse maritime conditions.
+\paragraph{Conclusion}  This study shows that DRL provides a promising framework for the autopilot control of foiling sailboats compared to traditional PID-based systems. We successfully trained DRL agents capable of navigating stochastic upwind conditions ranging from 10 to 20\,knots. Our comparative analysis revealed that while the MLP remains a competitive reactive baseline, the state of the art 1DCNN architecture developed in this work emerged as the a promising robust solution for high performance regimes. 1DCNN achieves a peak steady-state CMG of 24.6\,knots. These results indicate that while temporal feature extraction in the 1DCNN significantly enhances robustness and performance under high-load conditions. Its adaptive jitter strategy effectively manages micro-corrections to maintain optimal foil lift, whereas the memoryless MLP often succumbs to inefficient oscillations or policy collapse under high wind loads. However, the identification of OOB failures in specific low wind edge cases suggests that aggressive performance optimization must be balanced with safe logic to ensure reliability across the entire polar range.
 
-The results interpretation demonstrates that the 1DCNN is the most robust and high-performing model among those tested. It achieved a peak performance of 24.6 knots, notably under out-of-distribution high-wind conditions ($20\,\text{kts}$), which underscores its superior ability to extrapolate learned physical dynamics beyond the training envelope. While the MLP showed competitive results in moderate, in-distribution scenarios, it suffered from significant operational instability and policy divergence in complex heading-wind configurations, such as the $H:135^\circ$ case. Conversely, the 1DCNN maintained a stable and continuous performance profile, utilizing a learned "adaptive jitter" strategy to make high-frequency micro-corrections that maximized average speed. This indicates that the 1DCNN provides a more effective structural bias for maritime control tasks than traditional dense architectures.
+\paragraph{Future Work}  
+Future work can focus on expanding the agent's operational envelope to cover a broader range of sailing conditions. To reduce the identified stability issues in marginal environments, we propose the integration of hierarchical RL structures, in which a high level 1DCNN oversees strategic performance while a low level reactive layer enforces safety constraints to prevent OOB excursions. Additionally, incorporating wave interactions and swell generation into the training environment will better prepare agents for the complex sea states. Finally, comparing the current 1DCNN architecture with recurrent models, such as Long Short-Term Memory (LSTM) networks, may provide insights into the most effective approach for capturing long-term temporal dependencies.
 
-Future work will focus on the following areas to further advance the system's capabilities:
-\begin{itemize}
-    \item \textbf{Dynamic Obstacle Avoidance:} Extending the 1DCNN policy to incorporate sensor fusion (e.g., LiDAR or Radar) for real-time navigation in environments with moving obstacles.
-    \item \textbf{Multi-Objective Optimization:} Refining the reward function to balance maximum CMG with fuel efficiency and mechanical longevity by penalizing excessive rudder "jitter."
-    \item \textbf{Transfer Learning for Variable Vessel Dynamics:} Investigating the portability of the learned 1DCNN weights to different hull designs and propulsion systems to determine the universality of the learned control laws.
-    \item \textbf{Real-World Deployment:} Transitioning from high-fidelity simulations to hardware-in-the-loop (HIL) testing and eventually full-scale maritime trials to validate the 1DCNN's performance under stochastic real-world sea states.
-\end{itemize}
+
+\section*{Acknowledgments}
+
+We sincerely thank Camille and Benjamin Negrevergne from \href{https://nautia.fr/}{Nautia} for proposing this project and providing unwavering guidance throughout its development. Their support helped shape the work, ensured rigor, and gave us access to the \emph{BoatSimulator}, without which this project would not have been possible. We also thank the ENSAI for providing the computers to carry out the work which were essential for developing and testing our models.
+
+\section*{Data Availability}
+All data supporting the findings of this study, including training and evaluation scripts, are available at \url{https://github.com/Dilru1/deep-fooling}. A subset of derived data—including training checkpoints, \texttt{VecNormalize} statistics, and steady state CMG performance scores for both the MLP and 1DCNN architectures is also provided in the repository, along with the code used for data processing. Full evaluation datasets, high-resolution trajectory logs, and additional analysis files are available upon request. A web application for dynamically monitoring the RL agents is also accessible online. The state of the art \texttt{HistoryCNNExtractor} can be downloaded at \url{https://github.com/Dilru1/deep-fooling/blob/main/cnn_extractor.py}.
+
+
+
+\vspace{1.5cm}
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!40!black, arc=4pt, boxrule=0.8pt, left=10pt, right=10pt, top=10pt, bottom=10pt]
+\begin{center}
+\textit{
+``The pessimist complains about the wind; the optimist expects it to change; the realist adjusts the sails.''\\
+--- William Arthur Ward
+}
+
+\vspace{0.5cm}
+
+\textit{
+In the context of RL, the agent reflects the realist. It does not assume a favorable environment nor resist uncertainty, but instead learns a policy that continuously adapts to changing conditions. Through iterative interaction, feedback, and optimization, intelligent control emerges not from predicting the future perfectly, but from learning how to adjust the sails at every moment.}
+\end{center}
+\end{tcolorbox}
