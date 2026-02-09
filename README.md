@@ -1,4 +1,4 @@
-# deep-fooling — Reinforcement Learning of a Steering Model for a Foiling Sailboat
+### Reinforcement Learning of a Steering Model for a Foiling Sailboat
 
 <div align="center">
   <img src="assets/ensai-logo.png" alt="ENSAI Logo" height="80" style="margin-right: 20px;"/>
@@ -7,34 +7,20 @@
 
 <br/>
 
-## Overview
+This Deep Reinforcement Learning (DRL) project developed during the SMART-DATA (2025–2026) specialization at **ENSAI**, in collaboration with the [Nautia](https://nautia.fr/). 
 
-**deep-fooling** is a Deep Reinforcement Learning (DRL) project developed during the **SMART-DATA (2025–2026)** specialization at **ENSAI**, in collaboration with the startup **Nautia**.
+#### Rationale
 
-Racing boats in elite solo offshore events like the [Vendée Globe](https://en.wikipedia.org/wiki/Vend%C3%A9e_Globe) rely on high-performance autopilots. Traditional closed-loop control systems, however, often fail to optimise trajectories amidst stochastic environmental changes — forcing sailors to steer manually to remain competitive. With the advent of **hydrofoils**, which reduce drag by lifting the hull, steering complexity has increased further, requiring controllers that can proactively manage both stability and speed.
+Racing sailboats competing in elite solo offshore events such as the [Vendée Globe](https://en.wikipedia.org/wiki/Vend%C3%A9e_Globe) rely heavily on high-performance autopilot systems to maintain optimal performance over long distances. However, traditional closed-loop control approaches often struggle to optimize trajectories under stochastic and rapidly changing environmental conditions, frequently requiring manual intervention from sailors to remain competitive. This project introduces a Deep Reinforcement Learning (DRL) framework designed to learn optimal steering policies within a custom Gymnasium-based sailing simulator. The control problem is formulated as a Markov Decision Process (MDP), focusing on upwind navigation across varying wind headings (90°–140°) and wind speeds (10–18 knots). Three control strategies are evaluated: a classical PID baseline, a native Multi-Layer Perceptron (MLP) policy using the Stable-Baselines3 default architecture, and a novel 1D Convolutional Neural Network (CNN) feature extractor. Results demonstrate that the 1D CNN achieves the strongest overall performance, reaching a peak Course Made Good (CMG) of **24.59 knots** under stress-test conditions (95° heading, 20 kts wind) and outperforming the PID controller in most in-distribution scenarios with improvements of up to **+5.27%**. While the MLP exhibited instability in high-wind regimes and often underperformed relative to the PID baseline, the 1D CNN proved to be the most robust architecture for high-speed foiling, despite some vulnerability to out-of-bounds failures under light-wind conditions (10 kts).
 
-This project presents a DRL framework that learns optimal steering policies inside a custom **Gymnasium-based** sailing simulator. The agent’s task is formulated as a **Markov Decision Process (MDP)** focused on upwind navigation under variable wind headings (90° – 140°) and wind speeds (10 – 18 knots).
+The agent maximises Course Made Good (CMG), the projected boat speed along the target heading  with an out-of-bounds penalty when the relative heading exceeds ±45°:
 
-## Key Results
+$$r_t = \text{CMG}_t - \mathbb{1}\left[|\Delta\theta| \geq 45°\right] \cdot c_{\text{oob}}$$
 
-We evaluate and compare **three control strategies**:
-
-| Strategy | Description |
-|---|---|
-| **PID Baseline** | Traditional proportional–integral–derivative controller |
-| **MLP** | Native Multi-Layer Perceptron policy (Stable-Baselines3 default) |
-| **1D CNN** | Novel 1D Convolutional Neural Network feature extractor |
-
-**Highlights:**
-
-- The **1D CNN** achieved a peak *Course Made Good* (CMG) of **24.59 knots** under stress-test conditions (95° heading, 20 kts wind).
-- It outperformed the PID baseline in the majority of in-distribution scenarios, with improvements of up to **+5.27 %**.
-- The MLP struggled with stability in high-wind regimes, often under-performing the PID by significant margins.
-- The 1D CNN showed some vulnerability to *Out-of-Bounds* failures at light-wind boundaries (10 kts), but proved to be the most robust architecture for high-speed foiling overall.
 
 > 📄 **Paper:** [Read the full report](Report/main.pdf)
 
-## Project Structure
+Project Structure
 
 ```
 deep-fooling/
@@ -56,13 +42,6 @@ deep-fooling/
 └── assets/                         # Logos and images
 ```
 
-## Architecture
-
-### Reward Function
-
-The agent maximises **Course Made Good (CMG)** — the projected boat speed along the target heading — with an out-of-bounds penalty when the relative heading exceeds ±45°:
-
-$$r_t = \text{CMG}_t - \mathbb{1}\left[|\Delta\theta| \geq 45°\right] \cdot c_{\text{oob}}$$
 
 ### 1D CNN Feature Extractor
 
@@ -72,7 +51,7 @@ The custom `HistoryCNNExtractor` reshapes stacked observations into a temporal s
 Input (flat) → Reshape (stack × features) → Conv1D(32) → ReLU → Conv1D(64) → ReLU → Flatten → Linear(64)
 ```
 
-### Training
+###### Training
 
 - **Algorithm:** PPO (Proximal Policy Optimization) via [Stable-Baselines3](https://stable-baselines3.readthedocs.io/)
 - **Observation stacking:** `VecFrameStack` (3 frames)
@@ -81,35 +60,12 @@ Input (flat) → Reshape (stack × features) → Conv1D(32) → ReLU → Conv1D(
 - **Learning rate:** Linear schedule with configurable initial and final values
 - **Timesteps:** 250,000
 
-## Getting Started
 
-### Prerequisites
 
-- Python 3.10+
-- Access to the Nautia `boatsgym` / `boatsimulator` packages
-
-### Installation
-
-```bash
-git clone https://github.com/Dilru1/deep-fooling.git
-cd deep-fooling
-pip install -r requirments.txt
-```
-
-### Training
-
-```bash
-# Train with the 1D CNN policy
-python minimal_train_1dcnn_par_seed.py
-
-# Train with the default MLP policy
-python minimal_train_par_seed.py
-```
-
-### Evaluation
+Evaluation
 
 Evaluation scripts are located in the `TEST/` directory. See `TEST/evaluate_1dcnn.py` and `TEST/evaluate_mlp.py`.
 
-## Acknowledgements
+Acknowledgements
 
 This project was developed at **ENSAI** as part of the SMART-DATA specialization (2025–2026), in partnership with **Nautia**.
